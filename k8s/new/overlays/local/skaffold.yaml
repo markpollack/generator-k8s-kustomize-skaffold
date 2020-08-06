@@ -2,13 +2,13 @@
 actions:
   to: skaffold.yaml
 ---
-apiVersion: skaffold/v1
+apiVersion: skaffold/v2beta6
 kind: Config
 profiles:
   - name: local
     build:
       artifacts:
-        - image: lift/{{artifactId}}
+        - image: lift/accessing-data-mysql
           jib:
             type: maven
             args:
@@ -20,15 +20,14 @@ profiles:
       local:
         push: false
     deploy:
-      kubectl:
-        manifests:
-          - deployments/kubernetes/local/manifest.yaml
+      kustomize:
+        paths:
+          - kubernetes/overlays/local
 #
 # Will be using k8s yaml files for services
 #
   - name: local-services
     deploy:
-      kubectl:
-        manifests:
-          - deployments/kubernetes/local-services/**/manifest.yaml
-
+      kustomize:
+        paths:
+          - kubernetes/overlays/local-services/mysql
