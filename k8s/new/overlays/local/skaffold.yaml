@@ -8,7 +8,7 @@ profiles:
   - name: local
     build:
       artifacts:
-        - image: lift/accessing-data-mysql
+        - image: lift/{{artifactId}}
           jib:
             type: maven
             args:
