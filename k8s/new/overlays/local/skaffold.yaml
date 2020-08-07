@@ -8,7 +8,7 @@ profiles:
   - name: local
     build:
       artifacts:
-        - image: lift/{{artifactId}}
+        - image: {{artifactId}}
           jib:
             type: maven
             args:
