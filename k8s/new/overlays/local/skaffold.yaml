@@ -31,3 +31,16 @@ profiles:
       kustomize:
         paths:
           - kubernetes/overlays/local-services/mysql
+#
+# Will be using Helm charts for services
+#
+  - name: local-services-helm
+    deploy:
+      helm:
+        releases:
+        - name: mysql
+          chartPath:
+            bitnami/mysql
+          remote: true
+          setValues:
+            db.user: springuser
