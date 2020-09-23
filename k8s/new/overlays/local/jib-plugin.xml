@@ -20,9 +20,9 @@ actions:
                         <to>
                             <image>{{artifactId}}</image>
                             <tags>
-								<tag>latest</tag>
-								<tag>{{mavenModel.version}}</tag>
-							</tags>
+                                <tag>latest</tag>
+                                <tag>{{mavenModel.version}}</tag>
+                            </tags>
                         </to>
                     </configuration>
                     <executions>
