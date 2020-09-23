@@ -5,7 +5,7 @@ actions:
 images:
   - name: markpollack/spring-sample-app:1.0.0  #used for Kustomize matching
     newName: {{artifactId}}
-    newTag: 0.0.1-SNAPSHOT
+    newTag: latest
 configMapGenerator:
   - name: spring-configmap  # naming convention in base use to mount the file to /config/application.properties in a persistent volume
     files:
